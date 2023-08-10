@@ -1038,11 +1038,11 @@ a.jp-video-play-icon {
   margin-top: -25px;
   left: 50%;
   top: 50%;
-  background: url("../img/video_play_button.png") 0 0 no-repeat;
+  background: url("../../../resources/img/video_play_button.png") 0 0 no-repeat;
   text-indent: -9999px;
 }
 div.jp-video-play:hover a.jp-video-play-icon {
-  background: url("../img/video_play_button.png") 0 -50px no-repeat;
+  background: url("../../../resources/img/video_play_button.png") 0 -50px no-repeat;
 }
 div.jp-jplayer audio,
 div.jp-jplayer {
@@ -1171,12 +1171,12 @@ a:hover {
   padding: 10px 20px;
 }
 .achievement {
-  background-image: url("../img/achievement.png");
+  background-image: url("../../../resources/img/achievement.png");
   width: 32px;
   height: 32px;
 }
 .medal {
-  background-image: url("../img/medals.png");
+  background-image: url("../../../resources/img/medals.png");
   width: 32px;
   height: 32px;
 }
@@ -1235,7 +1235,7 @@ a:hover {
   background-color: #4b4646;
 }
 #welcomeScreen {
-  background: #4b4646 url("resources/img/welcome_screen_bg.png") no-repeat left top;
+  background: #4b4646 url("../../../resources/img/welcome_screen_bg.png") no-repeat left top;
 }
 #gameScreen {
   background: #000;
@@ -1463,7 +1463,7 @@ li.ui-draggable-dragging {
   left: 466px;
   width: 42px;
   height: 700px;
-  background: url("resources/img/helpscreen_vertical_bar.png");
+  background: url("../../../resources/img/helpscreen_vertical_bar.png");
 }
 #helpScreen .mainMenuButton {
   position: absolute;

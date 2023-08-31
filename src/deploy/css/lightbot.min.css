@@ -1171,12 +1171,12 @@ a:hover {
   padding: 10px 20px;
 }
 .achievement {
-  background-image: url("../img/achievement.png");
+  background-image: url("../../../resources/img/achievement.png");
   width: 32px;
   height: 32px;
 }
 .medal {
-  background-image: url("../img/medals.png");
+  background-image: url("../../../resources/img/medals.png");
   width: 32px;
   height: 32px;
 }
@@ -1235,7 +1235,7 @@ a:hover {
   background-color: #4b4646;
 }
 #welcomeScreen {
-  background: #4b4646 url("../img/welcome_screen_bg.png") no-repeat left top;
+  background: #4b4646 url("../../../resources/img/welcome_screen_bg.png") no-repeat left top;
 }
 #gameScreen {
   background: #000;
@@ -1463,7 +1463,7 @@ li.ui-draggable-dragging {
   left: 466px;
   width: 42px;
   height: 700px;
-  background: url("../img/helpscreen_vertical_bar.png");
+  background: url("../../../resources/img/helpscreen_vertical_bar.png");
 }
 #helpScreen .mainMenuButton {
   position: absolute;

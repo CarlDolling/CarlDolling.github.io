@@ -1485,3 +1485,7 @@ li.placeholder{
     font-size: 13px !important;
     line-height: 1.2 !important;
 }
+.drag-over-highlight{
+  border: 1px solid #fcefa1 !important;
+  background: #beaf59 !important;
+}

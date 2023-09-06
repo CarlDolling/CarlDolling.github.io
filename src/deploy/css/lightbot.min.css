@@ -1489,3 +1489,6 @@ li.placeholder{
   border: 1px solid #fcefa1 !important;
   background: #beaf59 !important;
 }
+.ghost-element{
+  background: #beaf59 !important;
+}

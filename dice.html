@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D&D Dice</title>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            grid-template-rows: auto auto auto;
+            grid-gap: 2px;
+        }
+        .center {
+            margin: auto;
+            width: 80%;
+            padding: 10px;
+            text-align: center;
+        }
+        .grid-item {
+            border: 1px solid black;
+            padding: 0.5rem;
+        }
+        .number {
+            font-size: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-container center">
+        <div class="grid-item">
+            <p class="center number" id="d4"> - </p>
+            <button class="center" onclick="rolld4()">Roll d4</button>
+        </div>
+        <div class="grid-item">
+            <p class="center number" id="d6"> - </p>
+            <button class="center" onclick="rolld6()">Roll d6</button>
+        </div>
+        <div class="grid-item">
+            <p class="center number" id="d8"> - </p>
+            <button class="center" onclick="rolld8()">Roll d8</button>
+        </div>
+        <div class="grid-item">
+            <p class="center number" id="d10"> - </p>
+            <button class="center" onclick="rolld10()">Roll d10</button>
+        </div>
+        <div class="grid-item">
+            <p class="center number" id="d12"> - </p>
+            <button class="center" onclick="rolld12()">Roll d12</button>
+        </div>
+        <div class="grid-item">
+            <p class="center number" id="d14"> - </p>
+            <button class="center" onclick="rolld14()">Roll d14</button>
+        </div>
+        <div class="grid-item">
+            <p class="center number" id="d16"> - </p>
+            <button class="center" onclick="rolld16()">Roll d16</button>
+        </div>
+        <div class="grid-item">
+            <p class="center number" id="d18"> - </p>
+            <button class="center" onclick="rolld18()">Roll d18</button>
+        </div>
+        <div class="grid-item">
+            <p class="center number" id="d20"> - </p>
+            <button class="center" onclick="rolld20()">Roll d20</button>
+        </div>
+      </div>
+
+
+    <script>
+        let d4 = document.getElementById("d4");
+        let d6 = document.getElementById("d6");
+        let d8 = document.getElementById("d8");
+        let d10 = document.getElementById("d10");
+        let d12 = document.getElementById("d12");
+        let d14 = document.getElementById("d14");
+        let d16 = document.getElementById("d16");
+        let d18 = document.getElementById("d18");
+        let d20 = document.getElementById("d20");
+
+        function rolld4(){
+            d4.innerHTML = "-";
+            setTimeout(function(){
+                d4.innerHTML = (Math.floor(Math.random() * 4) +1);
+            }, 200);
+        }
+        function rolld6(){
+            d6.innerHTML = "-";
+            setTimeout(function(){
+                d6.innerHTML = (Math.floor(Math.random() * 6) +1);
+            }, 200);
+        }
+        function rolld8(){
+            d8.innerHTML = "-";
+            setTimeout(function(){
+                d8.innerHTML = (Math.floor(Math.random() * 8) +1);
+            }, 200);
+        }
+        function rolld10(){
+            d10.innerHTML = "-";
+            setTimeout(function(){
+                d10.innerHTML = (Math.floor(Math.random() * 10) +1);
+            }, 200);
+        }
+        function rolld12(){
+            d12.innerHTML = "-";
+            setTimeout(function(){
+                d12.innerHTML = (Math.floor(Math.random() * 12) +1);
+            }, 200);
+        }
+        function rolld14(){
+            d14.innerHTML = "-";
+            setTimeout(function(){
+                d14.innerHTML = (Math.floor(Math.random() * 14) +1);
+            }, 200);
+        }
+        function rolld16(){
+            d16.innerHTML = "-";
+            setTimeout(function(){
+                d16.innerHTML = (Math.floor(Math.random() * 16) +1);
+            }, 200);
+        }
+        function rolld18(){
+            d18.innerHTML = "-";
+            setTimeout(function(){
+                d18.innerHTML = (Math.floor(Math.random() * 18) +1);
+            }, 200);
+        }
+        function rolld20(){
+            d20.innerHTML = "-";
+            setTimeout(function(){
+                d20.innerHTML = (Math.floor(Math.random() * 20) +1);
+            }, 200);
+        }
+    </script>
+</body>
+
+</html>

@@ -85,6 +85,16 @@ function updateColor(select){
 
     creature.classList.add(val);
 }
+function updateMap(select){
+    let map_container = document.getElementById("map-container");
+
+    if(select.value == "none") {
+        map_container.removeAttribute("style");
+    } else {
+        map_container.setAttribute("style", "background-image: url('./map_images/" + select.value + "')");
+    }
+    
+}
 
 let currentElement = "";
 let initialX = 0, initialY = 0;

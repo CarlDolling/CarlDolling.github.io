@@ -11,13 +11,41 @@
     <div class="site-layout"> 
         <div class="map-menu">
             <h2 class="center">Menu</h2>
+
+            <br>
+
+            <div>
+                <label for="map_background">Map Background:</label>
+                <select id="map_background" onchange="updateMap(this)">
+                    <option value="none">None</option>
+                    <option value="seaside_bar_day.jpg">Seaside Bar Day</option>
+                    <option value="seaside_bar_night.jpg">Seaside Bar Night</option>
+                    <option value="driftwood_cave_day.jpg">Driftwood Cave Day</option>
+                    <option value="driftwood_cave_night.jpg">Driftwood Cave Night</option>
+                    <option value="basalt_columns_cliff.jpg">Basalt Columns Cliff</option>
+                    <option value="basalt_columns_shallow.jpg">Basalt Columns Shallow</option>
+                    <option value="buried_temple_active.jpg">Buried Temple Active</option>
+                    <option value="buried_temple_inactive.jpg">Buried Temple Inactive</option>
+                    <option value="farmers_fields_day.jpg">Farmers Fields Day</option>
+                    <option value="farmers_fields_night.jpg">Farmers Fields Night</option>
+                    <option value="shattered_sky_blue.jpg">Shattered Sky Blue</option>
+                    <option value="shattered_sky_red.jpg">Shattered Sky Red</option>
+                    <option value="twilight_tavern_cellar.jpg">Twilight Tavern Cellar</option>
+                    <option value="twilight_tavern_floor1.jpg">Twilight Tavern Floor 1</option>
+                    <option value="twilight_tavern_floor2.jpg">Twilight Tavern Floor 2</option>
+                </select>
+                <a href="https://2minutetabletop.com/author/2mtt/">Author</a>
+            </div>
+
+            <br>
+
             <button class="full-width" onclick="addCreature()">Add Creature</button>
             
             <div id="creature-list">
             </div>
 
         </div>  
-        <div class="grid-container" id="map-container">
+        <div class="grid-container image-holder" id="map-container">
         </div>
     </div>
       

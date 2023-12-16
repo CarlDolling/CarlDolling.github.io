@@ -47,8 +47,8 @@ function addCreature(){
 
     let creatureList = document.getElementById("creature-list");
     creatureList.innerHTML += `
-    <br>
-    <div class="creature-menu">
+    <div class="creature-menu" id="creature-menu-`+ creatureCount +`">
+        <br>
         <input type="text" value="Creature `+ creatureCount +`" id="creature-name-`+ creatureCount +`" onchange="updateTooltip(this)">
         <select id="creature-color-`+ creatureCount +`" onchange="updateColor(this)">
             <option value="cred">Red</option>
@@ -57,13 +57,26 @@ function addCreature(){
             <option value="cpink">Pink</option>
             <option value="cyellow">Yellow</option>
         </select>
+        <button class="remove-btn" id="remove-`+ creatureCount +`" onclick="removeCreature(this)">X</button>
     </div>`;
     colors[creatureCount] = "cred"; //default color
     ++creatureCount;
     for (let i = 0; i < creatureCount; i++) {
-        let cpicker = document.getElementById("creature-color-"+i);
-        cpicker.value = colors[i];        
+        try{
+            let cpicker = document.getElementById("creature-color-"+i);
+            cpicker.value = colors[i];    
+        } catch {
+
+        }
+            
     }
+}
+function removeCreature(btn){
+    let number = btn.id.substring(7);
+    let square = document.getElementById("creature-" + number);
+    let cmenu = document.getElementById("creature-menu-" + number);
+    square.remove();
+    cmenu.remove();
 }
 function updateTooltip(input){
     input.setAttribute("value", input.value);

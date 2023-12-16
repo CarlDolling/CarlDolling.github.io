@@ -738,6 +738,31 @@ function generateSpecial(){
                 WIS: (variant == 3 ? "15" : (variant == 2 ? "11" : "13")),
                 CHA: (variant == 3 ? "13" : "12")
             }
+        } else if(etype == 11){
+            enemies[i] = {
+                level: "",
+                race: "Death Dog",
+                class: "",
+                initiative: calculateInitiative(14),
+                hp: "39",
+                speed: "40",
+                ac: "12",
+                darkvision: "0",
+                immunities: "",
+                advantages: "advantage on perception checks and on saving throws against being blinded, charmed, deafened, frightened, stunned, or knocked unconscious",
+                hit: "+5",
+                attack: `<b>Multiattack.</b> The dog makes two bite attacks.
+                <br><b>Bite.</b> Melee Weapon Attack: Reach 5 ft., one target. Hit: 1d6 + 2 piercing damage. If the target is a creature, it must succeed on a DC 12 Constitution saving throw against disease or become poisoned until the disease is cured. Every 24 hours that elapse, the creature must repeat the saving throw, reducing its hit point maximum by 5 (1d10) on a failure. This reduction lasts until the disease is cured. The creature dies if the disease reduces its hit point maximum to 0.`,
+                spellslots: "0 0 0 0 0 0 0 0 0",
+                savings: ["+2","+2","+2","-4","+1","-2"],
+                skills: ["+2","+2","+2","+4","-4","-4","-4","-4","-4","+1","+1","+1","+5","+1","-2","-2","-2","-2"],
+                STR: "15",
+                DEX: "14",
+                CON: "14",
+                INT: "3",
+                WIS: "13",
+                CHA: "6"
+            }
         } else if(etype == 20){
             enemies[i] = {
                 level: "",
@@ -1120,6 +1145,55 @@ function generateSpecial(){
                 INT: "10",
                 WIS: "12",
                 CHA: "9"
+            }
+        } else if(etype == 100){
+            enemies[i] = {
+                level: "",
+                race: "Guardian Naga",
+                class: "",
+                initiative: calculateInitiative(4),
+                hp: "127",
+                speed: "40",
+                ac: "18",
+                darkvision: "0",
+                immunities: "poison, charmed",
+                advantages: "",
+                hit: "+8",
+                spell_hit: "+8",
+                attack: "<b>Bite.</b> Melee Weapon Attack: Reach 10 ft., one creature. Hit: 1d8 + 4 piercing damage, and the target must make a DC 15 Constitution saving throw, taking 10d8 poison damage on a failed save, or half as much damage on a successful one.<br><b>Spit Poison.</b> Ranged Weapon Attack: Range 15/30 ft., one creature. Hit: The target must make a DC 15 Constitution saving throw, taking 10d8 poison damage on a failed save, or half as much damage on a successful one.<br><br><b>Cantrips</b> (at will): mending, sacred flame, thaumaturgy<br><b>1st level</b> (4 slots): command, cure wounds, shield of faith<br><b>2nd level</b> (3 slots): calm emotions, hold person<br><b>3rd level</b> (3 slots): bestow curse, clairvoyance<br><b>4th level</b> (3 slots): banishment, freedom of movement<br><b>5th level</b> (2 slots): flame strike, geas<br><b>6th level</b> (1 slot): true seeing",
+                spellslots: "4 3 3 3 3 2 1 0 0",
+                savings: ["+4","+8","+7","+7","+8","+8"],
+                skills: ["+4","+4","+4","+4","+3","+3","+3","+3","+3","+4","+4","+4","+4","+4","+4","+4","+4","+4"],
+                STR: "19",
+                DEX: "18",
+                CON: "16",
+                INT: "16",
+                WIS: "19",
+                CHA: "18"
+            }
+        } else if(etype == 150){
+            enemies[i] = {
+                level: "",
+                race: "Purple Worm",
+                class: "",
+                initiative: calculateInitiative(7),
+                hp: "247",
+                speed: "50",
+                ac: "18",
+                darkvision: "0",
+                immunities: "",
+                advantages: "",
+                hit: "+9",
+                attack: "<b>Multiattack.</b> The worm makes two attacks: one with its bite and one with its stinger.<br><br><b>Bite.</b> Melee Weapon Attack: Reach 10 ft., one target. Hit: 3d8 + 9 piercing damage. If the target is a Large or smaller creature, it must succeed on a DC 19 Dexterity saving throw or be swallowed by the worm. A swallowed creature is blinded and restrained, it has total cover against attacks and other effects outside the worm, and it takes 6d6 acid damage at the start of each of the worm's turns. If the worm takes 30 damage or more on a single turn from a creature inside it, the worm must succeed on a DC 21 Constitution saving throw at the end of that turn or regurgitate all swallowed creatures, which fall prone in a space within 10 feet of the worm. If the worm dies, a swallowed creature is no longer restrained by it and can escape from the corpse by using 20 feet of movement, exiting prone.<br><b>Stinger.</b> Melee Weapon Attack: Reach 10 ft., one creature. Hit: 3d6 + 9 piercing damage, and the target must make a DC 19 Constitution saving throw, taking 12d6 poison damage on a failed save, or half as much damage on a successful one.",
+                spellslots: "0 0 0 0 0 0 0 0 0",
+                savings: ["+9","-2","+11","-4","+4","-4"],
+                skills: ["+9","-2","-2","-2","-5","-5","-5","-5","-5","-1","-1","-1","-1","-1","-3","-3","-3","-3"],
+                STR: "28",
+                DEX: "7",
+                CON: "22",
+                INT: "1",
+                WIS: "8",
+                CHA: "4"
             }
         }
     }

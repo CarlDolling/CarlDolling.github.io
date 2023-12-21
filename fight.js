@@ -1171,6 +1171,30 @@ function generateSpecial(){
                 WIS: "19",
                 CHA: "18"
             }
+        } else if(etype == 140){
+            enemies[i] = {
+                level: "",
+                race: "Ice Devil",
+                class: "",
+                initiative: calculateInitiative(14),
+                hp: "180",
+                speed: "40",
+                ac: "18",
+                darkvision: "120",
+                immunities: "poison, cold, fire",
+                advantages: "bludgeoning, piercing, and slashing from nonmagical attacks that aren't silvered, saving against magic",
+                hit: "+10",
+                attack: "<b>Multiattack.</b> The devil makes three attacks: one with its bite, one with its claws, and one with its tail.<br><br><b>Bite.</b> Melee Weapon Attack: Reach 5 ft., one target. Hit: 2d6 + 5 piercing damage plus 3d6 cold damage.<br><b>Claws.</b> Melee Weapon Attack: Reach 5 ft., one target. Hit: 2d4 + 5 slashing damage plus 3d6 cold damage.<br><b>Tail.</b> Melee Weapon Attack: Reach 10 ft., one target. Hit: 2d6 + 5 bludgeoning damage plus 3d6 cold damage.<br><b>Wall of Ice (Recharge 6).</b> The devil magically forms an opaque wall of ice on a solid surface it can see within 60 feet of it. The wall is 1 foot thick and up to 30 feet long and 10 feet high, or it's a hemispherical dome up to 20 feet in diameter. When the wall appears, each creature in its space is pushed out of it by the shortest route. The creature chooses which side of the wall to end up on, unless the creature is incapacitated. The creature then makes a DC 17 Dexterity saving throw, taking 10d6 cold damage on a failed save, or half as much damage on a successful one. The wall lasts for 1 minute or until the devil is incapacitated or dies. The wall can be damaged and breached; each 10-foot section has AC 5, 30 hit points, vulnerability to fire damage, and immunity to acid, cold, necrotic, poison, and psychic damage. If a section is destroyed, it leaves behind a sheet of frigid air in the space the wall occupied. Whenever a creature finishes moving through the frigid air on a turn, willingly or otherwise, the creature must make a DC 17 Constitution saving throw, taking 5d6 cold damage on a failed save, or half as much damage on a successful one. The frigid air dissipates when the rest of the wall vanishes.",
+                spellslots: "0 0 0 0 0 0 0 0 0",
+                savings: ["+5","+7","+9","+4","+7","+9"],
+                skills: ["+5","+2","+2","+2","+4","+4","+4","+4","+4","+2","+2","+2","+2","+2","+4","+4","+4","+4"],
+                STR: "21",
+                DEX: "14",
+                CON: "18",
+                INT: "18",
+                WIS: "15",
+                CHA: "18"
+            }
         } else if(etype == 150){
             enemies[i] = {
                 level: "",

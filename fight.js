@@ -247,7 +247,7 @@ function calculateAC(){
     return ((Math.floor(Math.random() * 4) +3) + (Math.floor(Math.random() * 4) +3) + (Math.floor(Math.random() * 4) +3));
 }
 function calculateDarkvision(race){
-    if(race == 1) return 60;
+    if(race == 1) return 0;
     if(race == 2) return 60;
     if(race == 3) return 60;
     if(race == 4) return 60;
@@ -469,7 +469,7 @@ function exportEnemies(){
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>DnD NPC Export</title>
+        <title>D&D NPC Export</title>
         <style>
         body{
             background-color: antiquewhite;

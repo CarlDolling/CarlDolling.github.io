@@ -56,6 +56,9 @@ function addCreature(){
             <option value="cgreen">Green</option>
             <option value="cpink">Pink</option>
             <option value="cyellow">Yellow</option>
+            <option value="cpurple">Purple</option>
+            <option value="cbrown">Brown</option>
+            <option value="cblack">Black</option>
         </select>
         <button class="remove-btn" id="remove-`+ creatureCount +`" onclick="removeCreature(this)">X</button>
     </div>`;

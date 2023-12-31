@@ -28,6 +28,7 @@ let enemies = [];
 //add one default attack spell for magic classes
 
 function generateEnemies(){
+    enemies = [];
     if(document.getElementById("special_preference").value > 0){
         generateSpecial();
     } else {

@@ -25,8 +25,6 @@ classMap.set(12,"Wizard");
 
 let enemies = [];
 
-//add one default attack spell for magic classes
-
 function generateEnemies(){
     enemies = [];
     if(document.getElementById("special_preference").value > 0){
@@ -591,7 +589,55 @@ function generateSpecial(){
     let enemies = [];
     let etype = document.getElementById("special_preference").value;
     for (let i = 0; i < numberOfEnemies; i++) {
-        if(etype == 10081){
+        if(etype == 10001){
+            enemies[i] = {
+                level: "",
+                race: "Death Leech",
+                class: "",
+                initiative: calculateInitiative(10),
+                hp: "1",
+                speed: "20",
+                ac: "10",
+                darkvision: "0",
+                immunities: "",
+                advantages: "",
+                hit: "+2",
+                attack: "<b>Bite.</b> Melee Weapon Attack: reach 5 ft., one target. Hit: 1 piercing damage",
+                spellslots: "0 0 0 0 0 0 0 0 0",
+                savings: ["-1","+0","+0","+0","+0","-1"],
+                skills: ["-1","+0","+0","+0","-1","-1","-1","-1","-1","+0","+0","+0","+0","+0","-1","-1","-1","-1"],
+                STR: "8",
+                DEX: "10",
+                CON: "6",
+                INT: "8",
+                WIS: "10",
+                CHA: "8"
+            }
+        } else if(etype == 10002){
+            enemies[i] = {
+                level: "",
+                race: "Drakeling",
+                class: "",
+                initiative: calculateInitiative(13),
+                hp: "2",
+                speed: "20",
+                ac: "12",
+                darkvision: "0",
+                immunities: "",
+                advantages: "",
+                hit: "+3",
+                attack: "<b>Bite.</b> Melee Weapon Attack: reach 5 ft., one target. Hit: 1d4 + 1 piercing damage",
+                spellslots: "0 0 0 0 0 0 0 0 0",
+                savings: ["-1","+1","+0","-4","+0","-2"],
+                skills: ["-1","+1","+1","+1","-4","-4","-4","-4","-4","+0","+0","+0","+0","+0","-2","-2","-2","-2"],
+                STR: "8",
+                DEX: "13",
+                CON: "10",
+                INT: "3",
+                WIS: "11",
+                CHA: "6"
+            }
+        } else if(etype == 10081){
             enemies[i] = {
                 level: "",
                 race: "Merfolk",

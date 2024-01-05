@@ -31,6 +31,10 @@ function generateMap(){
         element.addEventListener("touchmove", drop, false);
     });
 }
+function setCustomMap(event){
+    let map_container = document.getElementById("map-container");
+    map_container.setAttribute("style", "background-image: url('" + URL.createObjectURL(event.target.files[0]) + "')");
+}
 function addCreature(){
     let square = document.getElementById("0");
     square.innerHTML += `<div class="creature tooltip drop-item cred" id="creature-`+ creatureCount +`"><span id="tt-`+ creatureCount +`" class="tooltiptext">Creature `+ creatureCount +`</span></div>`;

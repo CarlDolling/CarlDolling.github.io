@@ -11,6 +11,11 @@
             grid-template-rows: auto auto auto;
             grid-gap: 2px;
         }
+        .grid-dice-count{
+            display: grid;
+            grid-template-columns: auto auto auto auto auto;
+            grid-gap: 2px;
+        }
         .center {
             margin: auto;
             width: 80%;
@@ -27,6 +32,28 @@
     </style>
 </head>
 <body>
+    <div class="grid-dice-count center">
+        <div>
+            <input type="radio" id="1d" name="dice_count" value="1" checked="checked">
+            <label for="1d">1d</label>
+        </div>
+        <div>
+            <input type="radio" id="2d" name="dice_count" value="2">
+            <label for="2d">2d</label>
+        </div>
+        <div>
+            <input type="radio" id="3d" name="dice_count" value="3">
+            <label for="3d">3d</label>
+        </div>
+        <div>
+            <input type="radio" id="4d" name="dice_count" value="4">
+            <label for="4d">4d</label>
+        </div>      
+        <div>
+            <input type="radio" id="5d" name="dice_count" value="5">
+            <label for="5d">5d</label>
+        </div>    
+    </div>
     <div class="grid-container center">
         <div class="grid-item">
             <p class="center number" id="d4"> - </p>
@@ -78,58 +105,98 @@
         let d18 = document.getElementById("d18");
         let d20 = document.getElementById("d20");
 
+        function determineDiceCount(){
+            return document.querySelector("input[name=dice_count]:checked").value
+        }
+
         function rolld4(){
             d4.innerHTML = "-";
             setTimeout(function(){
-                d4.innerHTML = (Math.floor(Math.random() * 4) +1);
+                let roll = 0;
+                for (let i = 0; i < determineDiceCount(); i++) {
+                    roll += (Math.floor(Math.random() * 4) +1)                 
+                }
+                d4.innerHTML = roll;
             }, 200);
         }
         function rolld6(){
             d6.innerHTML = "-";
             setTimeout(function(){
-                d6.innerHTML = (Math.floor(Math.random() * 6) +1);
+                let roll = 0;
+                for (let i = 0; i < determineDiceCount(); i++) {
+                    roll += (Math.floor(Math.random() * 6) +1);               
+                }
+                d6.innerHTML = roll;
             }, 200);
         }
         function rolld8(){
             d8.innerHTML = "-";
             setTimeout(function(){
-                d8.innerHTML = (Math.floor(Math.random() * 8) +1);
+                let roll = 0;
+                for (let i = 0; i < determineDiceCount(); i++) {
+                    roll += (Math.floor(Math.random() * 8) +1);            
+                }
+                d8.innerHTML = roll;
             }, 200);
         }
         function rolld10(){
             d10.innerHTML = "-";
             setTimeout(function(){
-                d10.innerHTML = (Math.floor(Math.random() * 10) +1);
+                let roll = 0;
+                for (let i = 0; i < determineDiceCount(); i++) {
+                    roll += (Math.floor(Math.random() * 10) +1);               
+                }
+                d10.innerHTML = roll;
             }, 200);
         }
         function rolld12(){
             d12.innerHTML = "-";
             setTimeout(function(){
-                d12.innerHTML = (Math.floor(Math.random() * 12) +1);
+                let roll = 0;
+                for (let i = 0; i < determineDiceCount(); i++) {
+                    roll += (Math.floor(Math.random() * 12) +1);              
+                }
+                d12.innerHTML = roll;
             }, 200);
         }
         function rolld14(){
             d14.innerHTML = "-";
             setTimeout(function(){
-                d14.innerHTML = (Math.floor(Math.random() * 14) +1);
+                let roll = 0;
+                for (let i = 0; i < determineDiceCount(); i++) {
+                    roll += (Math.floor(Math.random() * 14) +1);              
+                }
+                d14.innerHTML = roll;
             }, 200);
         }
         function rolld16(){
             d16.innerHTML = "-";
             setTimeout(function(){
-                d16.innerHTML = (Math.floor(Math.random() * 16) +1);
+                let roll = 0;
+                for (let i = 0; i < determineDiceCount(); i++) {
+                    roll += (Math.floor(Math.random() * 16) +1);               
+                }
+                d16.innerHTML = roll;
             }, 200);
         }
         function rolld18(){
             d18.innerHTML = "-";
             setTimeout(function(){
-                d18.innerHTML = (Math.floor(Math.random() * 18) +1);
+                let roll = 0;
+                for (let i = 0; i < determineDiceCount(); i++) {
+                    roll += (Math.floor(Math.random() * 18) +1);             
+                }
+                d18.innerHTML = roll;
             }, 200);
         }
         function rolld20(){
             d20.innerHTML = "-";
             setTimeout(function(){
-                d20.innerHTML = (Math.floor(Math.random() * 20) +1);
+                let roll = 0;
+                for (let i = 0; i < determineDiceCount(); i++) {
+                    roll += (Math.floor(Math.random() * 20) +1);                 
+                }
+                d20.innerHTML = roll;
             }, 200);
         }
     </script>

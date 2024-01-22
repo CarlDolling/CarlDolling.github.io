@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D&D Name Generator</title>
+    <style>
+        .input-grid {
+            display: grid;
+            grid-template-columns: 20% 60% 20%;
+            grid-template-rows: auto;
+            grid-gap: 2px;
+        }
+        .input-item {
+            border: 1px solid black;
+            padding: 0.7rem 0.2rem;
+            background-color: white;
+        }
+        .center {
+            margin: auto;
+            width: 80%;
+            padding: 10px;
+            text-align: center;
+        }
+        .number {
+            font-size: 2rem;
+        }
+        .smallbmargin {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="input-grid center">
+        <div class="input-item">
+            <label for="name_number">Number (per race):</label>
+            <input type="number" id="name_number" name="name_number" value="3">
+        </div>
+        <div class="input-item">
+            <fieldset>      
+                <legend>Races</legend>      
+                <input type="checkbox" name="race_select" value="Dragonborn">Dragonborn
+                <input type="checkbox" name="race_select" value="Dwarf">Dwarf
+                <input type="checkbox" name="race_select" value="Elf">Elf
+                <input type="checkbox" name="race_select" value="Gnome">Gnome
+                <input type="checkbox" name="race_select" value="Half-Elf">Half-Elf
+                <input type="checkbox" name="race_select" value="Half-Orc">Half-Orc
+                <input type="checkbox" name="race_select" value="Halfling">Halfling
+                <input type="checkbox" name="race_select" value="Human">Human
+                <input type="checkbox" name="race_select" value="Tiefling">Tiefling
+            </fieldset> 
+        </div>
+        
+        <div class="input-item">
+            <button onclick="generateNames()" class="smallbmargin">Generate Names</button>
+            <br>
+            <button onclick="exportNames()">Export Names</button>
+        </div>
+    </div>
+
+    <br>
+    <div class="center"><textarea name="" id="name_box" cols="50" rows="20"></textarea></div>
+    
+
+    <script>
+        const first_names = [
+            ["Kimatuu", "Guul", "Onxileth", "Fennbradoon", "Zajhan", "Klastek", "Shendelith", "Norexus", "Delmevv", "Shahton"],
+            ["Kellan", "Diorson", "Neir", "Dophensus", "Dyarnor", "Gunderic", "Rurik", "Norinir", "Goltan", "Helsbid"],
+            ["Druthaea", "Rolen", "Thanna", "Gallinnris", "Illivos", "Erlis", "Anania", "Saria", "Solios"],
+            ["Carlyn", "Ardyn", "Dreep", "Andelee", "Sebb", "Lelann", "Lylli", "Zanug", "Mardinab"],
+            ["Shynarra", "Chatha", "Knud", "Sha'l", "Bashden", "Sygren", "Torsten", "Balla", "Mirta", "Rai"],
+            ["Bagi", "Nahlta", "Onkah", "Dragnah", "Morgan", "Dalg", "Delmak", "Gehl", "Need", "Kruhd", "Andrak", "Relch", "Seldroh", "Harrl", "Tragh", "Ilch", "Harrk", "Gron", "Meldah", "Danch"],
+            ["Maldin", "Welby", "Alder", "Nedha", "Cayd", "Rudy", "Lilli", "Carret", "Othen"],
+            ["Jhesven", "Lilis", "Jhevell", "Ezerin", "Galdra", "Amarra", "Stogrid", "Toal", "Arnud", "Arntha", "Banser", "Malafry", "Inyra"],
+            ["Amonn", "Danxik", "Rhitta", "Nephamor", "Urxiks", "Lebrill", "Zaixis", "Joranth", "Rohlia", "Zardahn", "Damachi", "Kyreth", "Anspiria", "Zendrah", "Laressa"]
+        ];
+        const last_names = [
+            ["Peskkan", "Arjbhan", "Ghesh", "Kreev", "Tarthun", "Trahlen", "Drysthi", "Baalex", "Morovann", "Luminask"],
+            ["Ironhelm", "Bloodlight", "Bnarson", "Darkhammer", "Boarspawn", "Bloodhawk", "Ironwood", "Ironbeard", "Wintershadow", "Greyboot"],
+            ["Illphelaran", "Rauthistacia", "Kiirdon", "Ruahir", "Sianaegis", "Auvreatirn", "Nyrhlasdur", "Rumlaran", "Maerhond", "Melinodel"],
+            ["Meerin", "Piklin", "Ledinn", "Joelin", "Lynnit", "Grigg", "Syldri", "Taurin", "Ningrel"],
+            ["Nymesinn", "Funsani", "Coolsprint", "Rith", "Jeshi", "Thy'ms", "Crowfeather", "Fatuma", "Taitu", "Wan"],
+            [""],
+            ["Fircone", "Newfield", "Nimblesnack", "Brewhaggle", "Roseroot", "Thornfinger", "Goldworth", "Twiglight", "Teagreens", "Underbrush"],
+            ["Ablemeadow", "Craglow", "Bloodgard", "Ablewillow", "Calmridge", "Stonewillow", "Lacksmith", "Riptail", "Marblehorn", "Amberflower"],
+            [""]
+        ];
+        function generateNames(){
+            let numberOfNames = document.getElementById("name_number").value;
+            let nameBox = document.getElementById("name_box");
+            nameBox.innerHTML = "";
+            let race_select = document.getElementsByName("race_select");
+            let selected_races = [];
+            for(let i = 0; i < race_select.length; i++){  
+                if(race_select[i].checked)  
+                    selected_races[i] = true;
+                else selected_races[i] = false;
+            } 
+
+            for (let i = 0; i < 10; i++) {
+                if(selected_races[i] == true){
+                    for (let j = 0; j < numberOfNames; j++) {
+                        nameBox.innerHTML += first_names[i][Math.floor(Math.random() * first_names[i].length)];
+                        nameBox.innerHTML += " ";
+                        nameBox.innerHTML += last_names[i][Math.floor(Math.random() * last_names[i].length)];
+                        nameBox.innerHTML += " (" + race_select[i].value + ")";
+                        nameBox.innerHTML += "\n";                      
+                    }
+                }
+            }
+        }
+        function exportNames(){
+            let nameBox = document.getElementById("name_box");
+            var element = document.createElement('a');
+            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(nameBox.innerHTML));
+            element.setAttribute('download', 'NameExport.txt');
+
+            element.style.display = 'none';
+            document.body.appendChild(element);
+
+            element.click();
+
+            document.body.removeChild(element);
+        }
+        
+       
+    </script>
+</body>
+
+</html>

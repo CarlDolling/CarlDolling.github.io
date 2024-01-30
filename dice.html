@@ -29,6 +29,9 @@
         .number {
             font-size: 2rem;
         }
+        .slightly-larger {
+            font-size: 1.5rem;
+        }
     </style>
 </head>
 <body>
@@ -92,6 +95,7 @@
             <button class="center" onclick="rolld20()">Roll d20</button>
         </div>
       </div>
+      <div class="center slightly-larger" id="roll_details"></div>
 
 
     <script>
@@ -105,6 +109,10 @@
         let d18 = document.getElementById("d18");
         let d20 = document.getElementById("d20");
 
+        function displayDetails(text_in){
+            let txtdiv = document.getElementById("roll_details");
+            txtdiv.innerHTML = text_in;
+        }
         function determineDiceCount(){
             return document.querySelector("input[name=dice_count]:checked").value
         }
@@ -113,90 +121,135 @@
             d4.innerHTML = "-";
             setTimeout(function(){
                 let roll = 0;
+                let roll_text = "";
                 for (let i = 0; i < determineDiceCount(); i++) {
-                    roll += (Math.floor(Math.random() * 4) +1)                 
+                    let rand = (Math.floor(Math.random() * 4) +1)
+                    roll += rand;
+                    roll_text += rand;   
+                    roll_text += " ";               
                 }
                 d4.innerHTML = roll;
+                displayDetails(roll_text);
             }, 200);
         }
         function rolld6(){
             d6.innerHTML = "-";
             setTimeout(function(){
                 let roll = 0;
+                let roll_text = "";
                 for (let i = 0; i < determineDiceCount(); i++) {
-                    roll += (Math.floor(Math.random() * 6) +1);               
+                    let rand = (Math.floor(Math.random() * 6) +1)
+                    roll += rand;
+                    roll_text += rand;   
+                    roll_text += " ";              
                 }
                 d6.innerHTML = roll;
+                displayDetails(roll_text);
             }, 200);
         }
         function rolld8(){
             d8.innerHTML = "-";
             setTimeout(function(){
                 let roll = 0;
+                let roll_text = "";
                 for (let i = 0; i < determineDiceCount(); i++) {
-                    roll += (Math.floor(Math.random() * 8) +1);            
+                    let rand = (Math.floor(Math.random() * 8) +1)
+                    roll += rand;
+                    roll_text += rand;   
+                    roll_text += " ";           
                 }
                 d8.innerHTML = roll;
+                displayDetails(roll_text);
             }, 200);
         }
         function rolld10(){
             d10.innerHTML = "-";
             setTimeout(function(){
                 let roll = 0;
+                let roll_text = "";
                 for (let i = 0; i < determineDiceCount(); i++) {
-                    roll += (Math.floor(Math.random() * 10) +1);               
+                    let rand = (Math.floor(Math.random() * 10) +1)
+                    roll += rand;
+                    roll_text += rand;     
+                    roll_text += " ";           
                 }
                 d10.innerHTML = roll;
+                displayDetails(roll_text);
             }, 200);
         }
         function rolld12(){
             d12.innerHTML = "-";
             setTimeout(function(){
                 let roll = 0;
+                let roll_text = "";
                 for (let i = 0; i < determineDiceCount(); i++) {
-                    roll += (Math.floor(Math.random() * 12) +1);              
+                    let rand = (Math.floor(Math.random() * 12) +1)
+                    roll += rand;
+                    roll_text += rand;   
+                    roll_text += " ";              
                 }
                 d12.innerHTML = roll;
+                displayDetails(roll_text);
             }, 200);
         }
         function rolld14(){
             d14.innerHTML = "-";
             setTimeout(function(){
                 let roll = 0;
+                let roll_text = "";
                 for (let i = 0; i < determineDiceCount(); i++) {
-                    roll += (Math.floor(Math.random() * 14) +1);              
+                    let rand = (Math.floor(Math.random() * 14) +1)
+                    roll += rand;
+                    roll_text += rand;        
+                    roll_text += " ";         
                 }
                 d14.innerHTML = roll;
+                displayDetails(roll_text);
             }, 200);
         }
         function rolld16(){
             d16.innerHTML = "-";
             setTimeout(function(){
                 let roll = 0;
+                let roll_text = "";
                 for (let i = 0; i < determineDiceCount(); i++) {
-                    roll += (Math.floor(Math.random() * 16) +1);               
+                    let rand = (Math.floor(Math.random() * 16) +1)
+                    roll += rand;
+                    roll_text += rand;       
+                    roll_text += " ";          
                 }
                 d16.innerHTML = roll;
+                displayDetails(roll_text);
             }, 200);
         }
         function rolld18(){
             d18.innerHTML = "-";
             setTimeout(function(){
                 let roll = 0;
+                let roll_text = "";
                 for (let i = 0; i < determineDiceCount(); i++) {
-                    roll += (Math.floor(Math.random() * 18) +1);             
+                    let rand = (Math.floor(Math.random() * 18) +1)
+                    roll += rand;
+                    roll_text += rand;  
+                    roll_text += " ";             
                 }
                 d18.innerHTML = roll;
+                displayDetails(roll_text);
             }, 200);
         }
         function rolld20(){
             d20.innerHTML = "-";
             setTimeout(function(){
                 let roll = 0;
+                let roll_text = "";
                 for (let i = 0; i < determineDiceCount(); i++) {
-                    roll += (Math.floor(Math.random() * 20) +1);                 
+                    let rand = (Math.floor(Math.random() * 20) +1)
+                    roll += rand;
+                    roll_text += rand;    
+                    roll_text += " ";                 
                 }
                 d20.innerHTML = roll;
+                displayDetails(roll_text);
             }, 200);
         }
     </script>

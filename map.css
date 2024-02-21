@@ -43,6 +43,12 @@
     flex-grow: 1;
     height: 100%;
 }
+.initiative-input{
+    width: 2.5rem;
+}
+.creature-input{
+    width: 9rem;
+}
 
   /* Tooltip text */
 .tooltip .tooltiptext {

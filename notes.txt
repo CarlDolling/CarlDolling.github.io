@@ -1,3 +1,0 @@
-add initiative to map website to order creatures
-
-tooltip with distance when dragging

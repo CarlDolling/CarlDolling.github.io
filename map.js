@@ -1,4 +1,5 @@
 let colors = [];
+let creatures = [];
 let creatureCount = 0;
 
 function generateMap(){
@@ -35,6 +36,29 @@ function setCustomMap(event){
     let map_container = document.getElementById("map-container");
     map_container.setAttribute("style", "background-image: url('" + URL.createObjectURL(event.target.files[0]) + "')");
 }
+function updateInitiative(input){
+    creatures[input.id.substring(20)] = parseInt(input.value);
+    input.setAttribute("value", input.value);
+    sortInitiatives();
+}
+function sortInitiatives(){
+    let tmp = [];
+    for (let i = 0; i < creatures.length; i++) {
+        tmp.push({id: i, ini: creatures[i]});        
+    }
+    tmp.sort(function(a, b) {
+        if (a.ini < b.ini) return 1;
+        if (a.ini > b.ini) return -1;
+        return 0;
+    });
+    let orderedList = "";
+    for (let i = 0; i < creatures.length; i++) {
+        orderedList += document.getElementById("creature-menu-"+ tmp[i].id).outerHTML;
+    }
+    let creatureList = document.getElementById("creature-list");
+    creatureList.innerHTML = orderedList;
+    console.log(tmp)
+}
 function addCreature(){
     let square = document.getElementById("0");
     square.innerHTML += `<div class="creature tooltip drop-item cred" id="creature-`+ creatureCount +`"><span id="tt-`+ creatureCount +`" class="tooltiptext">Creature `+ creatureCount +`</span><span id="dtt-`+ creatureCount +`" class="distancetooltip"></span></div>`;
@@ -53,7 +77,8 @@ function addCreature(){
     creatureList.innerHTML += `
     <div class="creature-menu" id="creature-menu-`+ creatureCount +`">
         <br>
-        <input type="text" value="Creature `+ creatureCount +`" id="creature-name-`+ creatureCount +`" onchange="updateTooltip(this)">
+        <input type="text" class="creature-input" value="Creature `+ creatureCount +`" id="creature-name-`+ creatureCount +`" onchange="updateTooltip(this)">
+        <input type="number" class="initiative-input" value="10" id="creature-initiative-`+ creatureCount +`" onchange="updateInitiative(this)">
         <select id="creature-color-`+ creatureCount +`" onchange="updateColor(this)">
             <option value="cred">Red</option>
             <option value="cblue">Blue</option>
@@ -67,6 +92,7 @@ function addCreature(){
         <button class="remove-btn" id="remove-`+ creatureCount +`" onclick="removeCreature(this)">X</button>
     </div>`;
     colors[creatureCount] = "cred"; //default color
+    creatures[creatureCount] = 10;
     ++creatureCount;
     for (let i = 0; i < creatureCount; i++) {
         try{
@@ -77,6 +103,7 @@ function addCreature(){
         }
             
     }
+    sortInitiatives();
 }
 function removeCreature(btn){
     let number = btn.id.substring(7);
@@ -183,6 +210,7 @@ const drop = (e) => {
         } catch (err) {}
     }
     currentDistanceTooltip.setAttribute("style", "visibility: hidden");
+    currentDistanceTooltip.innerHTML = "";
     currentDistanceTooltip = "";
     currentElement = "";
     startDrag = "";

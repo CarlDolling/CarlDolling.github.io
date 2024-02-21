@@ -37,7 +37,7 @@ function setCustomMap(event){
 }
 function addCreature(){
     let square = document.getElementById("0");
-    square.innerHTML += `<div class="creature tooltip drop-item cred" id="creature-`+ creatureCount +`"><span id="tt-`+ creatureCount +`" class="tooltiptext">Creature `+ creatureCount +`</span></div>`;
+    square.innerHTML += `<div class="creature tooltip drop-item cred" id="creature-`+ creatureCount +`"><span id="tt-`+ creatureCount +`" class="tooltiptext">Creature `+ creatureCount +`</span><span id="dtt-`+ creatureCount +`" class="distancetooltip"></span></div>`;
     
     let dropItems = document.querySelectorAll(".drop-item");
     dropItems.forEach((element) => {
@@ -116,8 +116,19 @@ function updateMap(select){
     
 }
 
+
 let currentElement = "";
+let currentDistanceTooltip = "";
+let startDrag = "";
+let lastDrag = "";
 let initialX = 0, initialY = 0;
+
+function calculateDistance(start, end){
+    let vertical = Math.abs(Math.floor(start / 35)-Math.floor(end / 35));
+    let horizontal = Math.abs(Math.abs(start-end) - (vertical * 35));
+    distance = Math.round(Math.sqrt(Math.pow(vertical,2) + Math.pow(horizontal,2))) * 5;
+    currentDistanceTooltip.innerHTML = distance + "ft";
+}
 
 const isTouchDevice = () => {
     try {
@@ -139,9 +150,20 @@ function dragStart(e) {
     } else {
       currentElement = e.target;
     }
+    if(currentElement.classList.contains("tooltip")){
+        let number = currentElement.id.substring(9);
+        let dtt = document.getElementById("dtt-"+number);
+        startDrag = currentElement.parentElement.id;
+        currentDistanceTooltip = dtt;
+        currentDistanceTooltip.setAttribute("style", "visibility: visible");
+    }
 }
 function dragOver(e) {
     e.preventDefault();
+    if(e.target.classList.contains("drop-area") && e.target.id != lastDrag){
+        lastDrag = e.target.id;
+        calculateDistance(startDrag, lastDrag);
+    }
 }
 
 const drop = (e) => {
@@ -160,7 +182,11 @@ const drop = (e) => {
             targetElement.append(currentElement);
         } catch (err) {}
     }
+    currentDistanceTooltip.setAttribute("style", "visibility: hidden");
+    currentDistanceTooltip = "";
     currentElement = "";
+    startDrag = "";
+    lastDrag = "";
 };
 function toggleColor(element){
     if(!element.innerHTML){

@@ -53,11 +53,12 @@ function sortInitiatives(){
     });
     let orderedList = "";
     for (let i = 0; i < creatures.length; i++) {
-        orderedList += document.getElementById("creature-menu-"+ tmp[i].id).outerHTML;
+        if(tmp[i].ini != -10){
+            orderedList += document.getElementById("creature-menu-"+ tmp[i].id).outerHTML;
+        }
     }
     let creatureList = document.getElementById("creature-list");
     creatureList.innerHTML = orderedList;
-    console.log(tmp)
 }
 function addCreature(){
     let square = document.getElementById("0");
@@ -111,6 +112,8 @@ function removeCreature(btn){
     let cmenu = document.getElementById("creature-menu-" + number);
     square.remove();
     cmenu.remove();
+
+    creatures[number] = -10;
 }
 function updateTooltip(input){
     input.setAttribute("value", input.value);
@@ -120,6 +123,7 @@ function updateTooltip(input){
 }
 function updateColor(select){
     let val = select.value;
+    select.setAttribute("value", val);
     let number = select.id.substring(15);
     colors[number] = val;
     let creature = document.getElementById("creature-" + number);
@@ -129,6 +133,9 @@ function updateColor(select){
     creature.classList.remove("cgreen");
     creature.classList.remove("cpink");
     creature.classList.remove("cyellow");
+    creature.classList.remove("cpurple");
+    creature.classList.remove("cbrown");
+    creature.classList.remove("cblack");
 
     creature.classList.add(val);
 }

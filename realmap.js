@@ -121,6 +121,9 @@ function drop(ev) {
     case "drag12": marker_icon = "marker_icons/people.png"; break;
     case "drag13": marker_icon = "marker_icons/sad.png"; break;
     case "drag14": marker_icon = "marker_icons/star.png"; break;
+    case "drag15": marker_icon = "marker_icons/person2.png"; break;
+    case "drag16": marker_icon = "marker_icons/person3.png"; break;
+    case "drag17": marker_icon = "marker_icons/person4.png"; break;
   }
 
   marker.setStyle(new ol.style.Style({

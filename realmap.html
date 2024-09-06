@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="https://openlayers.org/en/v6.6.1/css/ol.css" type="text/css">
+    <style>
+      .map {
+        height: 85vh;
+        width: 100%;
+      }
+      .distancetooltip {
+        visibility: hidden;
+        width: 5rem;
+        background-color: black;
+        color: #fff;
+        text-align: center;
+        padding: 0.1rem 0;
+        border-radius: 6px;
+        margin-top: 2.5rem;
+        position: absolute;
+        left: 1rem;
+        top: 8rem;
+        /* transform: translateX(-50%); */
+        z-index: 10;
+      }
+      /* The switch - the box around the slider */
+      .switch {
+        position: absolute;
+        z-index: 10;
+        width: 60px;
+        height: 34px;
+        left: 3.2rem;
+        top: 5.2rem;
+      }
+
+      /* Hide default HTML checkbox */
+      .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      /* The slider */
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+      }
+
+      .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+      }
+
+      input:checked + .slider {
+        background-color: #2196F3;
+      }
+
+      input:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+      }
+
+      input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+      }
+
+      /* Rounded sliders */
+      .slider.round {
+        border-radius: 34px;
+      }
+
+      .slider.round:before {
+        border-radius: 50%;
+      }
+    </style>
+    <script src="https://openlayers.org/en/v6.6.1/build/ol.js"></script>
+    
+    <title>D&D Real Map</title>
+  </head>
+  <body>
+      <div>
+          <span>
+            <label class="switch">
+              <input type="checkbox" onclick="toggleMap()" id="mapToggle">
+              <span class="slider round"></span>
+            </label>
+          </span>
+          <span style="cursor: move;"draggable="true" ondragstart="drag(event)"><img id="drag1" src="marker_icons/person.png" alt=""></span>
+          <span style="cursor: move;"draggable="true" ondragstart="drag(event)"><img id="drag2" src="marker_icons/shield.png" alt=""></span>
+          <span style="cursor: move;"draggable="true" ondragstart="drag(event)"><img id="drag3" src="marker_icons/skull.png" alt=""></span>
+          <span style="cursor: move;"draggable="true" ondragstart="drag(event)"><img id="drag4" src="marker_icons/flame.png" alt=""></span>
+          <span style="cursor: move;"draggable="true" ondragstart="drag(event)"><img id="drag5" src="marker_icons/paw.png" alt=""></span>
+          <span style="cursor: move;"draggable="true" ondragstart="drag(event)"><img id="drag6" src="marker_icons/bug.png" alt=""></span>
+          <span style="cursor: move;"draggable="true" ondragstart="drag(event)"><img id="drag7" src="marker_icons/dice.png" alt=""></span>
+          <span style="cursor: move;"draggable="true" ondragstart="drag(event)"><img id="drag8" src="marker_icons/fish.png" alt=""></span>
+          <span style="cursor: move;"draggable="true" ondragstart="drag(event)"><img id="drag9" src="marker_icons/hand.png" alt=""></span>
+          <span style="cursor: move;"draggable="true" ondragstart="drag(event)"><img id="drag10" src="marker_icons/heart.png" alt=""></span>
+          <span style="cursor: move;"draggable="true" ondragstart="drag(event)"><img id="drag11" src="marker_icons/moon.png" alt=""></span>
+          <span style="cursor: move;"draggable="true" ondragstart="drag(event)"><img id="drag12" src="marker_icons/people.png" alt=""></span>
+          <span style="cursor: move;"draggable="true" ondragstart="drag(event)"><img id="drag13" src="marker_icons/sad.png" alt=""></span>
+          <span style="cursor: move;"draggable="true" ondragstart="drag(event)"><img id="drag14" src="marker_icons/star.png" alt=""></span>
+      </div>  
+      <div id="map" class="map" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+      <div id="distancett" class="distancetooltip">0ft</div>
+
+      <script src="realmap.js"></script>
+  </body>
+</html>
